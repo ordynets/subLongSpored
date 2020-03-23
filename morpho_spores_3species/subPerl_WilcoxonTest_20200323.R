@@ -1,18 +1,16 @@
+# Load required packages
+library(here)
 
 
-#Reset R's brain
-rm(list=ls())
+# Set the current directory as working directory
+set_here()
 
-#setwd tells R where to look
-setwd("G:/R/SUB_perlongisporum/morpho v20191011")
 
-#use getwd to confirm that R is now looking here
-getwd()
-
-#Load spore table and adjust it
+# Load spore table and adjust it
 ranges.spo <- read.csv ("Spore_ranges_specimens_20191011_v2.csv",  sep=",")
 
 
+# Get data for Subulocystidium perlongisporum only
 ranges.spo.perl <- ranges.spo[which(ranges.spo$Species_ID=="perlongisporum"),]
 
 
@@ -23,3 +21,5 @@ wil.sp.W<-wilcox.test(Wmean~perl_clade, data=ranges.spo.perl,  exact = FALSE)
 wil.sp.W
 wil.sp.Q<-wilcox.test(Qmean~perl_clade, data=ranges.spo.perl,  exact = FALSE)
 wil.sp.Q
+
+# End

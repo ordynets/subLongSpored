@@ -1,18 +1,14 @@
-#Reset R's brain
-rm(list=ls())
+# Load required packages
+library(here)
+library(dplyr)
 
-#setwd tells R where to look
-setwd("G:/R/SUB_perlongisporum/morpho v20191011")
 
-#use getwd to confirm that R is now looking here
-getwd()
+# Set the current directory as working directory
+set_here()
+
 
 #Load spore table and adjust it
 sub <- read.csv ("SUB_cystidia_measurements_20191011_v1.csv",  sep=",")
-
-
-
-library(dplyr)
 
 
 # Establish lower and upper quantiles
