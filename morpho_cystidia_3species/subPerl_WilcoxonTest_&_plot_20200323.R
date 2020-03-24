@@ -24,15 +24,15 @@ wil.cy.Q
 
 
 # Plot boxplot with dotplots
-# NB! Outliers among the individual points are not highlighed 
+# Outliers points are marked with a dot in the center via the function geom_boxplot()  
 
 bp <- ggplot(ranges.cys.perl, aes(x=factor(perl_clade, level=c("clade 1", "clade 2")), 
                                   y=Lmean)) + 
   geom_point(size=5, shape=21, fill = NA, aes(x=factor(perl_clade, level=c("clade 1", "clade 2")), 
                                               y=Lmean, color=perl_clade))+
-  geom_boxplot(fill = NA, outlier.size = 7, outlier.shape=21, aes(x=factor(perl_clade, level=c("clade 1", "clade 2")), 
+  geom_boxplot(fill = NA, outlier.size = 1, outlier.shape=19, aes(x=factor(perl_clade, level=c("clade 1", "clade 2")), 
                               y=Lmean, color=perl_clade))+
-  labs(y="Mean length of cystidia, μm", x="Clade of Subulicystidium perlongisporum")+
+  labs(y="Mean length of cystidia, mkm", x="Clade of Subulicystidium perlongisporum")+
   theme(plot.title = element_text(hjust = 0.5, size=20, face="bold"),
         axis.title.x = element_text(size=14, face="bold", vjust=0.5),
         axis.title.y = element_text(size=14, face="bold", vjust=2.2),
