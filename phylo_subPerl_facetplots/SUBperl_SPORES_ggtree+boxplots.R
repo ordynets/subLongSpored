@@ -1,22 +1,25 @@
-
 ###############################################################################
-# Start
+# If not already done...
 ###############################################################################
 
-#Reset R's brain
-rm(list=ls())
+# Install relevant packages of 'ggtree' family
+# First, BiocManager has to installed from https://bioconductor.org/install/
+# Accordind to instructions there, use following commands:
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.10")
 
-#setwd tells R in which directory to work with data
-setwd("G:/R/SUB_perlongisporum/phylo perl facetplot")
-
-#use getwd to confirm that R is now looking here
-getwd()
-
-
+# install necessary packages from BiocManager
+# For me, to have this working, removing  
+# the previously installed Rccp package was necessary.
+# Also, I agreed to update some of the packages when this was asked in the console 
+BiocManager::install(c("ggtree", "treeio"))
 
 ###############################################################################
 # Load required packages
 ###############################################################################
+
+library(here)
 library(ape)
 library(ggtree)
 library(ggstance)
@@ -24,15 +27,17 @@ library(Hmisc)
 library(gdata) # messages on absent perl interpreter can be ignored
 library(treeio)
 
+# Set the current directory as working directory
+set_here()
 
 ###############################################################################
 # Load data
 ###############################################################################
 
 #Load tree 
-tree.unr <- read.tree("perl its PhyML_newick_tree.nhx")
+tree.unr <- read.tree("perl_its_PhyML_newick_tree.nhx")
 #to check the tree struture use
-#str(tree) 
+#str(tree.unr) 
 
 
 #Rooting and adjusting tip order
@@ -62,10 +67,10 @@ p1 <- p0 +
 
 
                 
-p2<- facet_plot(p1+xlim_tree(0.25), panel='Spore length, µm', data=annot.perl, 
+p2<- facet_plot(p1+xlim_tree(0.25), panel='Spore length, mkm', data=annot.perl, 
                 geom=geom_boxploth, mapping = aes(x=L_sp, group=label)) 
 
-p3<- facet_plot(p2, panel='Spore width, µm', data=annot.perl, 
+p3<- facet_plot(p2, panel='Spore width, mkm', data=annot.perl, 
                 geom=geom_boxploth, mapping = aes(x=W_sp, group=label)) 
 
 p4<- facet_plot(p3, panel='Spore length/width ratio', data=annot.perl, 
@@ -74,3 +79,4 @@ p4<- facet_plot(p3, panel='Spore length/width ratio', data=annot.perl,
 
 print(p4)
 
+# End
