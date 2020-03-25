@@ -8,4 +8,5 @@ This code allows to assign custom, including very complex, names to the DNA sequ
 This code also enables automated coloring of the tips of the phylogenetic tree according to some attribute (e.g. species name). The palette I used was successful to select 21 colors that were well distinguishable on the plotted tree!
 
 Furthermore, this code shows how to plot the branch support values from two phylogenetic analyses onto single phylogenetic tree. The code is based on the R code from Samuel Crane (https://github.com/samuelcrane/label-node-support/) and was adjusted for using on the own dataset of ca. 100 DNA sequences. 
-This code is an easier reusable version of the code in protocol Ordynets et al. 2018 https://www.protocols.io/view/plotting-phylogenetic-tree-with-branch-supports-fr-n9fdh3n.  
+
+This code is an easier reusable version of the code in protocol Ordynets et al. 2018 https://www.protocols.io/view/plotting-phylogenetic-tree-with-branch-supports-fr-n9fdh3n. 
